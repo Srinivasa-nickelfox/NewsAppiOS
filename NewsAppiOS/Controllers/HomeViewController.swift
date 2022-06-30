@@ -8,7 +8,7 @@
 import UIKit
 import SafariServices
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var table: UITableView!
     
@@ -21,6 +21,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         table.dataSource = self
         let nib = UINib(nibName: "TableViewCell", bundle: nil)
         table.register(nib, forCellReuseIdentifier: "cell")
+        
+        view.backgroundColor = .systemOrange
         
         fetchTopStories()
     }
@@ -56,14 +58,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let article = articles[indexPath.row]
+//        tableView.deselectRow(at: indexPath, animated: true)
+//        let article = articles[indexPath.row]
+//
+//        guard let url = URL(string: article.url ?? "") else {
+//            return
+//        }
+//        let vc = SFSafariViewController(url: url)
+//        present(vc,animated: true )
 
-        guard let url = URL(string: article.url ?? "") else {
-            return
-        }
-        let vc = SFSafariViewController(url: url)
-        present(vc,animated: true )
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "nextView") as! NextViewController
+        nextViewController.article = articles[indexPath.row]
+        self.present(nextViewController, animated:true, completion:nil)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

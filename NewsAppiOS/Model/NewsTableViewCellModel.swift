@@ -2,7 +2,7 @@
 //  NewsTableViewCellModel.swift
 //  NewsAppiOS
 //
-//  Created by Midhun Kasibhatla on 29/06/22.
+//  Created by Midhun Kasibhatla on 30/06/22.
 //
 
 import Foundation
