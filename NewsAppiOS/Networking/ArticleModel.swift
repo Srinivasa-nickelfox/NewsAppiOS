@@ -7,6 +7,8 @@
 
 import Foundation
 
+// Model for API Data to enter into CollectionViewCell/TableViewCell from CollectionView/TableView
+
 struct APIResponse: Codable {
     let articles: [Article]
 }

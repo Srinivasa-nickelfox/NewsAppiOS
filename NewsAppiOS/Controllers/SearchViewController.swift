@@ -14,6 +14,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var articles = [Article]()
     var viewModels = [NewsTableViewCellModel]()
     
+    // Functions for TableView Delegate and DataSource
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModels.count
     }
@@ -24,21 +26,17 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
+    // Function to instantiate a ViewController with it's identifier's name to navigate further
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//        let article = articles[indexPath.row]
-//
-//        guard let url = URL(string: article.url ?? "") else {
-//            return
-//        }
-//        let vc = SFSafariViewController(url: url)
-//        present(vc,animated: true )
 
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "nextView") as! NextViewController
         nextViewController.article = articles[indexPath.row]
         self.present(nextViewController, animated:true, completion:nil)
     }
+    
+    // Function for attributing height of Table View Cell
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
@@ -51,11 +49,13 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let nib = UINib(nibName: "TableViewCell", bundle: nil)
         table2.register(nib, forCellReuseIdentifier: "cell")
         
+        // Function calls for the API Data Fetching and creating a search bar
         fetchTopStories()
         createSearchBar()
-        view.backgroundColor = .systemOrange
+        view.backgroundColor = .black
     }
     
+    // Function to create a Search bar at the top of SearchViewController
     private let searchVC = UISearchController(searchResultsController: nil)
         
         private func createSearchBar(){
@@ -64,6 +64,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             searchVC.searchBar.searchTextField.textColor = .white
         }
         
+    //Function that provides functionality to the search bar to fetch news related to entered keyword
         func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
             guard let text = searchBar.text, !text.isEmpty else{
                 return
@@ -86,6 +87,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
     
+    //Function to fetch the API Data
     private func fetchTopStories() {
         APIFetcher.shared.getTopStories { [weak self] result in
             switch result {

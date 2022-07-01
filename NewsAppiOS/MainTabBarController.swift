@@ -13,10 +13,12 @@ class MaintabControllerViewController: UITabBarController {
         super.viewDidLoad()
 
         view.backgroundColor = .red
-        let vc1 = UINavigationController(rootViewController: HomeViewController())
-       // let vc2 = UINavigationController(rootViewController: SearchViewController())
         
-        setViewControllers([vc1], animated: true)
+        // Initializing HomeViewController and SearchViewController as rootViewControllers for MainTabBarController
+        let vc1 = UINavigationController(rootViewController: HomeViewController())
+        let vc2 = UINavigationController(rootViewController: SearchViewController())
+        
+        setViewControllers([vc1, vc2], animated: true)
     }
 
 }

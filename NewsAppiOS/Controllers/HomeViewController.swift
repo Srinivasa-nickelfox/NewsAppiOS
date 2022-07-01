@@ -8,24 +8,25 @@
 import UIKit
 import SafariServices
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController {
     
-    @IBOutlet weak var table: UITableView!
+    @IBOutlet weak var newsCollectionView: UICollectionView!
     
-     var articles = [Article]()
-     var viewModels = [NewsTableViewCellModel]()
+    var articles = [Article]()
+    var viewModels = [NewsTableViewCellModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        table.delegate = self
-        table.dataSource = self
-        let nib = UINib(nibName: "TableViewCell", bundle: nil)
-        table.register(nib, forCellReuseIdentifier: "cell")
+                newsCollectionView.delegate = self
+                newsCollectionView.dataSource = self
+                let nib = UINib(nibName: "CollectionViewCell", bundle: nil)
+                newsCollectionView.register(nib, forCellWithReuseIdentifier: "cell1")
         
-        view.backgroundColor = .systemOrange
-        
+        // Function call for the API Data Fetching
         fetchTopStories()
     }
+    
+    // Function to fetch the API Data
     
     private func fetchTopStories() {
         APIFetcher.shared.getTopStories { [weak self] result in
@@ -38,43 +39,53 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                                                imageURL: URL(string: $0.urlToImage ?? "https://demofree.sirv.com/nope-not-here.jpg?w=150"))
                 })
                 DispatchQueue.main.async {
-                    self?.table.reloadData()
+                    self?.newsCollectionView.reloadData()
                 }
             case .failure(let error):
                 print(error)
             }
-            
+
         }
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+}
+
+// Functions for CollectionView Delegate and DataSource
+
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+  
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModels.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = newsCollectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath) as! CollectionViewCell
         cell.configure(with: viewModels[indexPath.row])
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//        let article = articles[indexPath.row]
-//
-//        guard let url = URL(string: article.url ?? "") else {
-//            return
-//        }
-//        let vc = SFSafariViewController(url: url)
-//        present(vc,animated: true )
-
+    // Function to instantiate a ViewController with it's identifier's name to navigate further
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "nextView") as! NextViewController
         nextViewController.article = articles[indexPath.row]
         self.present(nextViewController, animated:true, completion:nil)
     }
+}
+
+// Functions attributing the height of collectionViewCell, no. of cells in each row, spacing between the cells in same row and different row
+
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.view.frame.size.width/2 - 1, height: 250)
+    }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
     }
 }
 

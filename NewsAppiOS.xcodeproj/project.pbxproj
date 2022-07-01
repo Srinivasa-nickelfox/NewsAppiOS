@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B57EFF0286EE00900A4CE2F /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B57EFEE286EE00900A4CE2F /* CollectionViewCell.swift */; };
+		2B57EFF1286EE00900A4CE2F /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B57EFEF286EE00900A4CE2F /* CollectionViewCell.xib */; };
 		2BACC7D4286D708B0052A534 /* NewsTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BACC7D3286D708B0052A534 /* NewsTableViewCellModel.swift */; };
 		2BB27B1B286C7CC600AD1334 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB27B1A286C7CC600AD1334 /* AppDelegate.swift */; };
 		2BB27B1D286C7CC600AD1334 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB27B1C286C7CC600AD1334 /* SceneDelegate.swift */; };
@@ -15,7 +17,7 @@
 		2BB27B25286C7CC600AD1334 /* NewsAppiOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2BB27B23286C7CC600AD1334 /* NewsAppiOS.xcdatamodeld */; };
 		2BB27B27286C7CC700AD1334 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BB27B26286C7CC700AD1334 /* Assets.xcassets */; };
 		2BB27B2A286C7CC700AD1334 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BB27B28286C7CC700AD1334 /* LaunchScreen.storyboard */; };
-		2BB27B38286C8A7400AD1334 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB27B37286C8A7400AD1334 /* Models.swift */; };
+		2BB27B38286C8A7400AD1334 /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB27B37286C8A7400AD1334 /* ArticleModel.swift */; };
 		2BB27B3A286C8A8900AD1334 /* APIFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB27B39286C8A8900AD1334 /* APIFetcher.swift */; };
 		2BB27B40286C992C00AD1334 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB27B3F286C992C00AD1334 /* MainTabBarController.swift */; };
 		2BDCEBC4286D7DC8003A72A7 /* NextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCEBC3286D7DC8003A72A7 /* NextViewController.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B57EFEE286EE00900A4CE2F /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		2B57EFEF286EE00900A4CE2F /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		2BACC7D3286D708B0052A534 /* NewsTableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCellModel.swift; sourceTree = "<group>"; };
 		2BB27B17286C7CC600AD1334 /* NewsAppiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsAppiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BB27B1A286C7CC600AD1334 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -35,7 +39,7 @@
 		2BB27B26286C7CC700AD1334 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BB27B29286C7CC700AD1334 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2BB27B2B286C7CC700AD1334 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2BB27B37286C8A7400AD1334 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		2BB27B37286C8A7400AD1334 /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
 		2BB27B39286C8A8900AD1334 /* APIFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFetcher.swift; sourceTree = "<group>"; };
 		2BB27B3F286C992C00AD1334 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		2BDCEBC3286D7DC8003A72A7 /* NextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 			children = (
 				80AEDE31286CBF1200591EC4 /* TableViewCell.xib */,
 				80AEDE30286CBF1200591EC4 /* TableViewCell.swift */,
+				2B57EFEE286EE00900A4CE2F /* CollectionViewCell.swift */,
+				2B57EFEF286EE00900A4CE2F /* CollectionViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -110,7 +116,7 @@
 		2BB27B36286C8A6200AD1334 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				2BB27B37286C8A7400AD1334 /* Models.swift */,
+				2BB27B37286C8A7400AD1334 /* ArticleModel.swift */,
 				2BB27B39286C8A8900AD1334 /* APIFetcher.swift */,
 			);
 			path = Networking;
@@ -188,6 +194,7 @@
 				80AEDE33286CBF1200591EC4 /* TableViewCell.xib in Resources */,
 				2BB27B27286C7CC700AD1334 /* Assets.xcassets in Resources */,
 				2BB27B22286C7CC600AD1334 /* Main.storyboard in Resources */,
+				2B57EFF1286EE00900A4CE2F /* CollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,10 +207,11 @@
 			files = (
 				2BB27B40286C992C00AD1334 /* MainTabBarController.swift in Sources */,
 				2BDCEBC6286D8BCE003A72A7 /* SearchViewController.swift in Sources */,
+				2B57EFF0286EE00900A4CE2F /* CollectionViewCell.swift in Sources */,
 				2BB27B25286C7CC600AD1334 /* NewsAppiOS.xcdatamodeld in Sources */,
 				2BB27B1F286C7CC600AD1334 /* HomeViewController.swift in Sources */,
 				80AEDE32286CBF1200591EC4 /* TableViewCell.swift in Sources */,
-				2BB27B38286C8A7400AD1334 /* Models.swift in Sources */,
+				2BB27B38286C8A7400AD1334 /* ArticleModel.swift in Sources */,
 				2BDCEBC4286D7DC8003A72A7 /* NextViewController.swift in Sources */,
 				2BB27B1B286C7CC600AD1334 /* AppDelegate.swift in Sources */,
 				2BB27B1D286C7CC600AD1334 /* SceneDelegate.swift in Sources */,

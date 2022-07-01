@@ -1,30 +1,20 @@
 //
-//  TableViewCell.swift
+//  CollectionViewCell.swift
 //  NewsAppiOS
 //
-//  Created by Midhun Kasibhatla on 29/06/22.
+//  Created by Midhun Kasibhatla on 01/07/22.
 //
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
+class CollectionViewCell: UICollectionViewCell {
 
-    
     @IBOutlet weak var newsImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var subtitleLabel: UILabel!
-    
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     // Function for making the default value of title, subtitle and image to be empty/nil
@@ -33,7 +23,6 @@ class TableViewCell: UITableViewCell {
     override func prepareForReuse() {
             super.prepareForReuse()
             titleLabel.text = nil
-            subtitleLabel.text = nil
             newsImage.image = nil
         }
     
@@ -41,7 +30,6 @@ class TableViewCell: UITableViewCell {
     
     func configure(with viewModel: NewsTableViewCellModel){
         titleLabel.text = viewModel.title
-        subtitleLabel.text = viewModel.subtitle
         
         if let data = viewModel.imageData {
             newsImage.image = UIImage(data: data)
@@ -60,5 +48,5 @@ class TableViewCell: UITableViewCell {
         }
         
     }
-    
+
 }

@@ -17,16 +17,21 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cA4-o5-pWH">
-                        <rect key="frame" x="5" y="5" width="212" height="164"/>
+                        <rect key="frame" x="5" y="10" width="212" height="154"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Headline" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8a-9q-UCe">
-                        <rect key="frame" x="222" y="0.0" width="240" height="81"/>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                        <rect key="frame" x="227" y="0.0" width="235" height="84"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1TI-nC-BMt">
-                        <rect key="frame" x="222" y="60" width="240" height="102"/>
+                        <rect key="frame" x="227" y="65" width="235" height="104"/>
                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -34,18 +39,18 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="1TI-nC-BMt" firstAttribute="leading" secondItem="cA4-o5-pWH" secondAttribute="trailing" constant="5" id="7DT-tI-evK"/>
-                    <constraint firstAttribute="bottom" secondItem="1TI-nC-BMt" secondAttribute="bottom" constant="12" id="7eg-GV-D0k"/>
+                    <constraint firstItem="1TI-nC-BMt" firstAttribute="leading" secondItem="cA4-o5-pWH" secondAttribute="trailing" constant="10" id="7DT-tI-evK"/>
+                    <constraint firstAttribute="bottom" secondItem="1TI-nC-BMt" secondAttribute="bottom" constant="5" id="7eg-GV-D0k"/>
                     <constraint firstAttribute="trailing" secondItem="1TI-nC-BMt" secondAttribute="trailing" constant="5" id="DuI-qw-8Z7"/>
-                    <constraint firstAttribute="bottom" secondItem="cA4-o5-pWH" secondAttribute="bottom" constant="5" id="IoV-LS-D9G"/>
-                    <constraint firstItem="1TI-nC-BMt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="60" id="NpF-qT-l1p"/>
+                    <constraint firstAttribute="bottom" secondItem="cA4-o5-pWH" secondAttribute="bottom" constant="10" id="IoV-LS-D9G"/>
+                    <constraint firstItem="1TI-nC-BMt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="65" id="NpF-qT-l1p"/>
                     <constraint firstAttribute="trailing" secondItem="i8a-9q-UCe" secondAttribute="trailing" constant="5" id="c8U-vt-3se"/>
                     <constraint firstAttribute="trailing" secondItem="cA4-o5-pWH" secondAttribute="trailing" constant="250" id="dqM-lR-coN"/>
-                    <constraint firstItem="cA4-o5-pWH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="g31-O4-Eb2"/>
+                    <constraint firstItem="cA4-o5-pWH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="g31-O4-Eb2"/>
                     <constraint firstItem="cA4-o5-pWH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="pRU-oh-Caq"/>
-                    <constraint firstAttribute="bottom" secondItem="i8a-9q-UCe" secondAttribute="bottom" constant="93" id="rP6-Fl-QvH"/>
+                    <constraint firstAttribute="bottom" secondItem="i8a-9q-UCe" secondAttribute="bottom" constant="90" id="rP6-Fl-QvH"/>
                     <constraint firstItem="i8a-9q-UCe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="rjg-hC-0hH"/>
-                    <constraint firstItem="i8a-9q-UCe" firstAttribute="leading" secondItem="cA4-o5-pWH" secondAttribute="trailing" constant="5" id="uXf-mE-EqC"/>
+                    <constraint firstItem="i8a-9q-UCe" firstAttribute="leading" secondItem="cA4-o5-pWH" secondAttribute="trailing" constant="10" id="uXf-mE-EqC"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

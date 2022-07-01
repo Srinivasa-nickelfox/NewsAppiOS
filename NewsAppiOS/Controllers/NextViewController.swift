@@ -32,6 +32,8 @@ class NextViewController: UIViewController {
         }
     }
     
+    // Function that opens the source of the news on clicking the "Click for more info button"
+    
     @IBAction func onClickingButton(_ sender: UIButton) {
         
         guard let url = URL(string: article?.url ?? "") else {
@@ -43,6 +45,7 @@ class NextViewController: UIViewController {
     
 }
 
+// Function that downloads the the image from the API data into local storage and renders it into image view
 extension UIImageView {
     func downloadImage( from url: URL)
     {

@@ -7,6 +7,8 @@
 
 import Foundation
 
+// Model for API Data to parse into TableView
+
 class NewsTableViewCellModel {
     let title: String
     let subtitle: String

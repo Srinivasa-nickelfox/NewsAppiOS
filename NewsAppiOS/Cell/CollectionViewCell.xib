@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell1" id="gTV-IL-0wX" customClass="CollectionViewCell" customModule="NewsAppiOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kcg-Xz-0oC">
+                        <rect key="frame" x="3" y="10" width="194" height="130"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Azb-i7-TfY">
+                        <rect key="frame" x="3" y="140" width="194" height="57"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="kcg-Xz-0oC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="3" id="0Xk-JV-45Z"/>
+                <constraint firstItem="Azb-i7-TfY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="3" id="0k8-X1-oIl"/>
+                <constraint firstAttribute="trailing" secondItem="Azb-i7-TfY" secondAttribute="trailing" constant="3" id="1sS-Ia-DNL"/>
+                <constraint firstItem="kcg-Xz-0oC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="O1U-Xo-9uQ"/>
+                <constraint firstItem="Azb-i7-TfY" firstAttribute="top" secondItem="kcg-Xz-0oC" secondAttribute="bottom" id="ZpI-Vk-koP"/>
+                <constraint firstAttribute="trailing" secondItem="kcg-Xz-0oC" secondAttribute="trailing" constant="3" id="cn1-kw-sH5"/>
+                <constraint firstAttribute="bottom" secondItem="Azb-i7-TfY" secondAttribute="bottom" constant="3" id="iC9-Va-vvP"/>
+                <constraint firstAttribute="bottom" secondItem="kcg-Xz-0oC" secondAttribute="bottom" constant="60" id="kTF-tE-dkN"/>
+            </constraints>
+            <size key="customSize" width="200" height="200"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="10"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="newsImage" destination="kcg-Xz-0oC" id="kQT-XE-cRe"/>
+                <outlet property="titleLabel" destination="Azb-i7-TfY" id="ggk-QG-h5f"/>
+            </connections>
+            <point key="canvasLocation" x="236.23188405797103" y="-50.223214285714285"/>
+        </collectionViewCell>
+    </objects>
+</document>
