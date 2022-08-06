@@ -9,7 +9,7 @@ import Foundation
 
 // Model for API Data to enter into CollectionViewCell/TableViewCell from CollectionView/TableView
 
-struct APIResponse: Codable {
+/*struct APIResponse: Codable {
     let articles: [Article]
 }
 
@@ -21,7 +21,4 @@ struct Article: Codable {
     let urlToImage: String?
     let publishedAt: String
  }
-
-//struct Source: Codable {
-//    let name: String
-//}
+ */

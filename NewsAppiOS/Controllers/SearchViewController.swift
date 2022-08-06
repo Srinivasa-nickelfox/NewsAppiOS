@@ -6,13 +6,19 @@
 //
 
 import UIKit
+import ReactiveSwift
 
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
     
     @IBOutlet weak var table2: UITableView!
     
-    var articles = [Article]()
-    var viewModels = [NewsTableViewCellModel]()
+    //var articles = [Article]()
+    //var viewModels = [NewsTableViewCellModel]()
+    
+    var apiKey = "e7855adfcfbb4dd69e3fd27172d1aa4e"
+    private var viewModels = [CustomCellModel]()
+    private var articles = [Article]()
+    var disposable = CompositeDisposable([])
     
     // Functions for TableView Delegate and DataSource
     
@@ -31,9 +37,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "nextView") as! NextViewController
+        if let nextViewController = storyBoard.instantiateViewController(withIdentifier: "nextView") as? NextViewController {
         nextViewController.article = articles[indexPath.row]
         self.present(nextViewController, animated:true, completion:nil)
+        }
     }
     
     // Function for attributing height of Table View Cell
@@ -49,14 +56,56 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let nib = UINib(nibName: "TableViewCell", bundle: nil)
         table2.register(nib, forCellReuseIdentifier: "cell")
         
+        self.setupObservers()
+        self.getData()
+        
         // Function calls for the API Data Fetching and creating a search bar
-        fetchTopStories()
+        //fetchTopStories()
         createSearchBar()
         view.backgroundColor = .black
     }
     
+    private func getData() {
+        let params: [String:Any] = [
+            "apiKey": self.apiKey,
+            "q": "apple",
+            "from": "2022-07-19",
+            "to": "2022-07-19",
+            "sortBy": "popularity"
+
+        ]
+        self.fetchNewsAction.apply(params).start()
+
+    }
+    
+    private let fetchNewsAction = Action { (params: [String:Any]) -> SignalProducer<[Article], ModelError> in
+        return Article.fetch(params: params)
+    }
+    
+    private func setupObservers() {
+        self.disposable += self.fetchNewsAction.values.observeValues(
+            { [weak self] (articles) in
+
+                    self?.articles = articles
+                self?.viewModels = articles.map({CustomCellModel(title: $0.title ?? "No title", subtitle: $0.description ?? "No description", imageURL: URL(string: $0.urlToImage ??  "")
+                    )
+                        
+                    })
+                    
+                    DispatchQueue.main.async {
+                        self?.table2.reloadData()
+                       
+                        
+                    }
+
+                })
+        self.disposable += self.fetchNewsAction.errors.observeValues({(error) in
+            print(error)
+    })
+    }
+    
     // Function to create a Search bar at the top of SearchViewController
-    private let searchVC = UISearchController(searchResultsController: nil)
+   private let searchVC = UISearchController(searchResultsController: nil)
         
         private func createSearchBar(){
             navigationItem.searchController = searchVC
@@ -69,7 +118,18 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             guard let text = searchBar.text, !text.isEmpty else{
                 return
             }
-            APIFetcher.shared.search(with: text) { [weak self] result in
+                let params: [String:Any] = [
+                    "apiKey": self.apiKey,
+                    "q": text,
+                    "from": "2022-07-19",
+                    "to": "2022-07-19",
+                    "sortBy": "popularity"
+
+                ]
+                self.fetchNewsAction.apply(params).start()
+
+            
+            /*NewsAPIClient.shared.search(with: text) { [weak self] result in
                 switch result {
                 case .success(let articles):
                     self?.articles = articles
@@ -84,11 +144,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 case .failure(let error):
                     print(error)
                 }
-            }
+            }*/
         }
     
     //Function to fetch the API Data
-    private func fetchTopStories() {
+   /* private func fetchTopStories() {
         APIFetcher.shared.getTopStories { [weak self] result in
             switch result {
             case .success(let articles):
@@ -106,6 +166,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
             
         }
-    }
+    }*/
    
 }

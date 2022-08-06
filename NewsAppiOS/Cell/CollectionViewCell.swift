@@ -28,7 +28,7 @@ class CollectionViewCell: UICollectionViewCell {
     
     // Function that configures/passes the fetched API data into respective views' cells
     
-    func configure(with viewModel: NewsTableViewCellModel){
+    func configure(with viewModel: CustomCellModel){
         titleLabel.text = viewModel.title
         
         if let data = viewModel.imageData {

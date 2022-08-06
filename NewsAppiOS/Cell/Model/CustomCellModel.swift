@@ -9,7 +9,7 @@ import Foundation
 
 // Model for API Data to parse into TableView
 
-class NewsTableViewCellModel {
+class CustomCellModel {
     let title: String
     let subtitle: String
     let imageURL: URL?

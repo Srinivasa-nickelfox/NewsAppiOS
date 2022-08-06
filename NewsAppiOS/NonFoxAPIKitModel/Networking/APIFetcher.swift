@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class APIFetcher {
+/*final class APIFetcher {
     static let shared = APIFetcher()
     
     struct Constants {
@@ -68,3 +68,4 @@ final class APIFetcher {
            
        }
 }
+*/

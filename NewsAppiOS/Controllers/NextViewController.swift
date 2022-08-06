@@ -10,8 +10,9 @@ import SafariServices
 
 class NextViewController: UIViewController {
     
-    var article: Article? = Article(title: "", description: "", url: "", urlToImage: "", publishedAt: "")
-    var articles = [Article]()
+    //var article: Article? = Article(title: "", description: "", url: "", urlToImage: "", publishedAt: "")
+    
+    var article: Article?
     
     @IBOutlet weak var newsImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -28,7 +29,7 @@ class NextViewController: UIViewController {
         {
             let url = URL(string: article?.urlToImage ?? "")
             newsImage?.downloadImage(from: url!)
-            newsImage.contentMode = .scaleAspectFill
+            //newsImage.contentMode = .scaleAspectFill
         }
     }
     
@@ -49,9 +50,13 @@ class NextViewController: UIViewController {
 extension UIImageView {
     func downloadImage( from url: URL)
     {
-        contentMode = .scaleToFill
         let dataTask = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200, let mimeType = response?.mimeType, mimeType.hasPrefix("image"),let data = data, error == nil, let image = UIImage(data: data)
+        guard let httpResponse = response as? HTTPURLResponse,
+                httpResponse.statusCode == 200,
+                let mimeType = response?.mimeType,
+                mimeType.hasPrefix("image"),
+              let data = data, error == nil,
+                let image = UIImage(data: data)
         else {
             return
         }

@@ -39,7 +39,7 @@ class TableViewCell: UITableViewCell {
     
     // Function that configures/passes the fetched API data into respective views' cells
     
-    func configure(with viewModel: NewsTableViewCellModel){
+    func configure(with viewModel: CustomCellModel){
         titleLabel.text = viewModel.title
         subtitleLabel.text = viewModel.subtitle
         
